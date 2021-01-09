@@ -1,3 +1,5 @@
+using Corium.Domain;
+
 namespace Corium.Destinations
 {
     public interface IInitialsDestination

@@ -1,20 +1,28 @@
 using System.IO;
+using Corium.Domain;
 using Newtonsoft.Json;
 
-namespace Corium.Sources
+namespace Corium.Sources.File
 {
     public class InitialsFileSource : IInitialsSource
     {
-        private string filePath;
+        private string _filePath;
 
         public InitialsFileSource(string filePath)
         {
-            this.filePath = filePath;
+            _filePath = filePath;
         }
 
         public Initials GetInitials()
         {
-            return JsonConvert.DeserializeObject<Initials>(File.ReadAllText(filePath));
+            try
+            {
+                return JsonConvert.DeserializeObject<Initials>(System.IO.File.ReadAllText(_filePath));
+            }
+            catch (FileNotFoundException fnfex)
+            {
+                throw new SourceNotFoundException(fnfex);
+            }
         }
     }
 }

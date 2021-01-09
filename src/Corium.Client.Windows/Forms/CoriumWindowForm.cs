@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
-using Corium.WindowsClient.Controls;
+using Corium.Client.Windows.Controls;
+using Corium.Domain;
 
-namespace Corium.WindowsClient.Forms
+namespace Corium.Client.Windows.Forms
 {
     public sealed partial class CoriumWindowForm : Form
     {

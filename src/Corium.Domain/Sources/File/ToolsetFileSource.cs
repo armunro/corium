@@ -1,7 +1,9 @@
+using System;
 using System.IO;
+using Corium.Domain;
 using Newtonsoft.Json;
 
-namespace Corium.Sources
+namespace Corium.Sources.File
 {
     public class ToolsetFileSource : IToolsetSource
     {
@@ -14,7 +16,14 @@ namespace Corium.Sources
 
         public ToolSet LoadToolset()
         {
-            return JsonConvert.DeserializeObject<ToolSet>(File.ReadAllText(_filePath));
+            try
+            {
+                return JsonConvert.DeserializeObject<ToolSet>(System.IO.File.ReadAllText(_filePath));
+            }
+            catch (FileNotFoundException sourceNotFoundEx)
+            {
+                throw new SourceNotFoundException(sourceNotFoundEx);
+            }
         }
     }
 }

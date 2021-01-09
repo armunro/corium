@@ -1,4 +1,4 @@
-namespace Corium
+namespace Corium.Domain
 {
     public class ToolWindowAppearance
     {

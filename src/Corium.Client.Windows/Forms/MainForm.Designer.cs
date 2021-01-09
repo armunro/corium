@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Corium.WindowsClient.Forms
+namespace Corium.Client.Windows.Forms
 {
     partial class MainForm
     {
@@ -37,7 +37,11 @@ namespace Corium.WindowsClient.Forms
             this.l1 = new System.Windows.Forms.Label();
             this.Sources = new System.Windows.Forms.ListBox();
             this.StartButton = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ToolsetsList = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -53,14 +57,13 @@ namespace Corium.WindowsClient.Forms
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.StartButton);
             this.groupBox1.Controls.Add(this.InitialsFilePath);
             this.groupBox1.Controls.Add(this.l1);
             this.groupBox1.Controls.Add(this.Sources);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(11, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(571, 245);
+            this.groupBox1.Size = new System.Drawing.Size(571, 148);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Initials";
@@ -98,27 +101,65 @@ namespace Corium.WindowsClient.Forms
             // 
             // StartButton
             // 
-            this.StartButton.Location = new System.Drawing.Point(7, 141);
+            this.StartButton.Location = new System.Drawing.Point(7, 117);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(103, 26);
             this.StartButton.TabIndex = 7;
-            this.StartButton.Text = "Lets Go";
+            this.StartButton.Text = "Launch";
             this.StartButton.UseVisualStyleBackColor = true;
-            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.StartButton);
+            this.groupBox2.Controls.Add(this.ToolsetsList);
+            this.groupBox2.Location = new System.Drawing.Point(11, 166);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(571, 157);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Initials";
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(7, 19);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(142, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Toolset Sources";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ToolsetsList
+            // 
+            this.ToolsetsList.FormattingEnabled = true;
+            this.ToolsetsList.ItemHeight = 15;
+            this.ToolsetsList.Location = new System.Drawing.Point(7, 47);
+            this.ToolsetsList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ToolsetsList.Name = "ToolsetsList";
+            this.ToolsetsList.Size = new System.Drawing.Size(557, 64);
+            this.ToolsetsList.TabIndex = 4;
+            this.ToolsetsList.DoubleClick += new System.EventHandler(this.ToolsetsList_DoubleClick);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 270);
+            this.ClientSize = new System.Drawing.Size(591, 427);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Fira Sans", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MainForm";
             this.Text = "Corium";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox ToolsetsList;
 
         private System.Windows.Forms.Button StartButton;
 

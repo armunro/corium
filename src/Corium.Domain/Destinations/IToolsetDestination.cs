@@ -1,4 +1,6 @@
-namespace Corium.Sources
+using Corium.Domain;
+
+namespace Corium.Destinations
 {
     public interface IToolsetDestination
     {

@@ -1,5 +1,6 @@
 
 
+using Corium.Domain;
 using Newtonsoft.Json;
 
 namespace Corium.Destinations.File

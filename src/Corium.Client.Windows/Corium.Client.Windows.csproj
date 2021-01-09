@@ -10,8 +10,8 @@
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
         <ProjectGuid>{E6854834-1A6F-45B9-9FDF-372642BB0B74}</ProjectGuid>
         <OutputType>WinExe</OutputType>
-        <RootNamespace>Corium.WindowsClient</RootNamespace>
-        <AssemblyName>Corium.WindowsClient</AssemblyName>
+        <RootNamespace>Corium.Client.Windows</RootNamespace>
+        <AssemblyName>Corium.Client.Windows</AssemblyName>
         <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

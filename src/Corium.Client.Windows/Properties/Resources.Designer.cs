@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Corium.WindowsClient.Properties
+namespace Corium.Client.Windows.Properties
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
@@ -45,7 +45,7 @@ namespace Corium.WindowsClient.Properties
                 if ((resourceMan == null))
                 {
                     global::System.Resources.ResourceManager temp =
-                        new global::System.Resources.ResourceManager("Corium.WindowsClient.Properties.Resources",
+                        new global::System.Resources.ResourceManager("Corium.Agent.Windows.Properties.Resources",
                             typeof(Resources).Assembly);
                     resourceMan = temp;
                 }

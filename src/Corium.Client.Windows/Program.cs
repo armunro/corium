@@ -2,12 +2,13 @@
 using System.Windows.Forms;
 using Autofac;
 using CefSharp;
+using Corium.Client.Windows.Forms;
 using Corium.Destinations;
 using Corium.Destinations.File;
 using Corium.Sources;
-using Corium.WindowsClient.Forms;
+using Corium.Sources.File;
 
-namespace Corium.WindowsClient
+namespace Corium.Client.Windows
 {
     static class Program
     {

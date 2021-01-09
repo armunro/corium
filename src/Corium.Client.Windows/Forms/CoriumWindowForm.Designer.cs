@@ -1,4 +1,4 @@
-﻿namespace Corium.WindowsClient.Forms
+﻿namespace Corium.Client.Windows.Forms
 {
     sealed partial class CoriumWindowForm
     {

@@ -5,7 +5,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Corium.WindowsClient.Controls
+namespace Corium.Client.Windows.Controls
 {
     public static class ControlExtensions
     {

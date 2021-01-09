@@ -1,8 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corium.WindowsClient", "Corium.WindowsClient\Corium.WindowsClient.csproj", "{E6854834-1A6F-45B9-9FDF-372642BB0B74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corium.Client.Windows", "Corium.Client.Windows\Corium.Client.Windows.csproj", "{E6854834-1A6F-45B9-9FDF-372642BB0B74}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corium", "Corium.Domain\Corium.csproj", "{B22FE90B-2C40-4CBF-9060-5093174FA4E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corium.Client.Service", "Corium.Client.Service\Corium.Client.Service.csproj", "{72A80B8B-5960-48F7-BAF1-86E02EC9B921}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,5 +25,11 @@ Global
 		{B22FE90B-2C40-4CBF-9060-5093174FA4E8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B22FE90B-2C40-4CBF-9060-5093174FA4E8}.|x64.ActiveCfg = Release|Any CPU
 		{B22FE90B-2C40-4CBF-9060-5093174FA4E8}.|x64.Build.0 = Release|Any CPU
+		{72A80B8B-5960-48F7-BAF1-86E02EC9B921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72A80B8B-5960-48F7-BAF1-86E02EC9B921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72A80B8B-5960-48F7-BAF1-86E02EC9B921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72A80B8B-5960-48F7-BAF1-86E02EC9B921}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72A80B8B-5960-48F7-BAF1-86E02EC9B921}.|x64.ActiveCfg = Debug|Any CPU
+		{72A80B8B-5960-48F7-BAF1-86E02EC9B921}.|x64.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Corium
+namespace Corium.Domain
 {
     public class Tool
     {

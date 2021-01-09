@@ -50,16 +50,18 @@
         <Compile Include="Destinations\File\ToolsetFileDestination.cs" />
         <Compile Include="Destinations\IInitialsDestination.cs" />
         <Compile Include="Destinations\IToolsetDestination.cs" />
-        <Compile Include="Initials.cs" />
+        <Compile Include="Domain\Initials.cs" />
+        <Compile Include="Domain\Tool.cs" />
+        <Compile Include="Domain\ToolSet.cs" />
+        <Compile Include="Domain\ToolWindow.cs" />
+        <Compile Include="Domain\ToolWindowAppearance.cs" />
+        <Compile Include="Examples\Toolset\ExampleBasicGoogleToolset.cs" />
         <Compile Include="Sources\File\InitialsFileSource.cs" />
+        <Compile Include="Sources\File\SourceNotFoundException.cs" />
         <Compile Include="Sources\File\ToolsetFileSource.cs" />
         <Compile Include="Sources\IInitialsSource.cs" />
         <Compile Include="Sources\IToolsetSource.cs" />
-        <Compile Include="Tool.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="ToolSet.cs" />
-        <Compile Include="ToolWindow.cs" />
-        <Compile Include="ToolWindowAppearance.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
