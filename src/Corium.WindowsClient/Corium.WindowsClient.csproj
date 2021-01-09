@@ -142,6 +142,10 @@
         <None Include="App.config" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\Corium.Domain\Corium.csproj">
+        <Project>{b22fe90b-2c40-4cbf-9060-5093174fa4e8}</Project>
+        <Name>Corium</Name>
+      </ProjectReference>
       <ProjectReference Include="..\Titanium.Domain\Corium.Core.csproj">
         <Project>{b22fe90b-2c40-4cbf-9060-5093174fa4e8}</Project>
         <Name>Corium.Core</Name>

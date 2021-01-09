@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corium.WindowsClient", "Corium.WindowsClient\Corium.WindowsClient.csproj", "{E6854834-1A6F-45B9-9FDF-372642BB0B74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corium.Core", "Corium.Domain\Corium.Core.csproj", "{B22FE90B-2C40-4CBF-9060-5093174FA4E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corium", "Corium.Domain\Corium.csproj", "{B22FE90B-2C40-4CBF-9060-5093174FA4E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
