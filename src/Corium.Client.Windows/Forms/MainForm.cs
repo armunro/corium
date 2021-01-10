@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Windows.Forms;
 using Autofac;
 using Corium.Destinations;
@@ -15,8 +14,10 @@ namespace Corium.Client.Windows.Forms
     {
         private readonly IContainer _container;
 
+        
         public MainForm(IContainer container)
         {
+            
             string defaultInitialsPath = "default.initials.json";
             string defaultToolSetPath = "default.toolset.json";
             
@@ -29,7 +30,7 @@ namespace Corium.Client.Windows.Forms
             {
                  initials = _container.Resolve<IInitialsSource>(initialsParam).GetInitials();
             }
-            catch (SourceNotFoundException snfEx)
+            catch (SourceNotFoundException)
             {
                 initials = new Initials() {ToolSetSources = new List<string>() {defaultToolSetPath}};
                 _container.Resolve<IInitialsDestination>(initialsParam).SetInitials(initials);
@@ -48,7 +49,7 @@ namespace Corium.Client.Windows.Forms
                     toolSet = _container.Resolve<IToolsetSource>(toolsetParam).LoadToolset();
                     
                 }
-                catch (SourceNotFoundException snfEx )
+                catch (SourceNotFoundException)
                 {
                     toolSet = Examples.Toolset.ExampleBasicGoogleToolset.ProvideToolset;
                    _container.Resolve<IToolsetDestination>(toolsetParam).SetToolSet(toolSet);

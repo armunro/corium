@@ -29,7 +29,7 @@ namespace Corium.Examples.Toolset
                         },
                         new ToolWindow()
                         {
-                            Name = "Adgenda",
+                            Name = "Agenda",
                             StartUrl = "https://calendar.google.com/calendar/u/0/r/day",
                             Appearance = new ToolWindowAppearance()
                             {

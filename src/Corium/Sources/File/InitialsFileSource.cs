@@ -2,6 +2,7 @@ using System.IO;
 using Corium.Domain;
 using Newtonsoft.Json;
 
+
 namespace Corium.Sources.File
 {
     public class InitialsFileSource : IInitialsSource

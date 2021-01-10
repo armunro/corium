@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:37576",
-      "sslPort": 44356
+      "applicationUrl": "http://localhost:37474",
+      "sslPort": 44355
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Corium.Agent": {
+    "Corium.Client.Service": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",
