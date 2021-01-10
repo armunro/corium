@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Corium.Domain;
 
-namespace Corium.Examples.Toolset
+namespace Corium.Application.Examples.Toolset
 {
     public class ExampleBasicGoogleToolset
     {

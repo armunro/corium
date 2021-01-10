@@ -13,9 +13,9 @@ using Microsoft.Extensions.Logging;
 
 namespace Corium.Client.Service
 {
-    public class Startup
+    public class ClientServiceStartup
     {
-        public Startup(IConfiguration configuration)
+        public ClientServiceStartup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -35,13 +35,9 @@ namespace Corium.Client.Service
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }

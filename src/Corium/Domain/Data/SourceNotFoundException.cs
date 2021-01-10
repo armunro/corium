@@ -1,6 +1,6 @@
 using System;
 
-namespace Corium.Sources.File
+namespace Corium.Domain.Data
 {
     public class SourceNotFoundException : Exception
     {

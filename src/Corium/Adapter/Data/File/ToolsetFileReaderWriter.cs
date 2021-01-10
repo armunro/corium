@@ -1,14 +1,17 @@
 using System.IO;
 using Corium.Domain;
+using Corium.Domain.Data;
+using Corium.Domain.Data.Readers;
+using Corium.Domain.Data.Writers;
 using Newtonsoft.Json;
 
-namespace Corium.Sources.File
+namespace Corium.Adapter.Data.File
 {
-    public class ToolsetFileSource : IToolsetSource
+    public class ToolsetFileReaderWriter : IToolsetReader, IToolsetWriter
     {
         private string _filePath;
 
-        public ToolsetFileSource(string filePath)
+        public ToolsetFileReaderWriter(string filePath)
         {
             _filePath = filePath;
         }
@@ -23,6 +26,11 @@ namespace Corium.Sources.File
             {
                 throw new SourceNotFoundException(sourceNotFoundEx);
             }
+        }
+        
+        public void SetToolSet(ToolSet toolset)
+        {
+            System.IO.File.WriteAllText(_filePath,JsonConvert.SerializeObject(toolset, Formatting.Indented));
         }
     }
 }

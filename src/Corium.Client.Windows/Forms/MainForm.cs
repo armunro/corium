@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Autofac;
-using Corium.Destinations;
+using Corium.Application.Examples.Toolset;
 using Corium.Domain;
-using Corium.Sources;
-using Corium.Sources.File;
+using Corium.Domain.Data;
+using Corium.Domain.Data.Readers;
+using Corium.Domain.Data.Writers;
 
 namespace Corium.Client.Windows.Forms
 {
@@ -28,12 +29,12 @@ namespace Corium.Client.Windows.Forms
           
             try
             {
-                 initials = _container.Resolve<IInitialsSource>(initialsParam).GetInitials();
+                 initials = _container.Resolve<IInitialsReader>(initialsParam).GetInitials();
             }
             catch (SourceNotFoundException)
             {
                 initials = new Initials() {ToolSetSources = new List<string>() {defaultToolSetPath}};
-                _container.Resolve<IInitialsDestination>(initialsParam).SetInitials(initials);
+                _container.Resolve<IInitialsWriter>(initialsParam).SetInitials(initials);
             }
 
             InitialsFilePath.Text = defaultInitialsPath;
@@ -46,13 +47,13 @@ namespace Corium.Client.Windows.Forms
                 ToolSet toolSet;
                 try
                 {
-                    toolSet = _container.Resolve<IToolsetSource>(toolsetParam).LoadToolset();
+                    toolSet = _container.Resolve<IToolsetReader>(toolsetParam).LoadToolset();
                     
                 }
                 catch (SourceNotFoundException)
                 {
-                    toolSet = Examples.Toolset.ExampleBasicGoogleToolset.ProvideToolset;
-                   _container.Resolve<IToolsetDestination>(toolsetParam).SetToolSet(toolSet);
+                    toolSet = ExampleBasicGoogleToolset.ProvideToolset;
+                   _container.Resolve<IToolsetWriter>(toolsetParam).SetToolSet(toolSet);
                 }
 
                 ToolsetsList.Items.Add(toolSet);

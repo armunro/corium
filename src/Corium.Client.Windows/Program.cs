@@ -2,12 +2,11 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autofac;
+using Corium.Adapter.Data.File;
 using Corium.Client.Service;
 using Corium.Client.Windows.Forms;
-using Corium.Destinations;
-using Corium.Destinations.File;
-using Corium.Sources;
-using Corium.Sources.File;
+using Corium.Domain.Data.Readers;
+using Corium.Domain.Data.Writers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
@@ -25,23 +24,19 @@ namespace Corium.Client.Windows
 
             ContainerBuilder builder = new ContainerBuilder();
 
-            builder.RegisterType<ToolsetFileSource>().As<IToolsetSource>();
-            builder.RegisterType<InitialsFileSource>().As<IInitialsSource>();
-            builder.RegisterType<InitialsFileDestination>().As<IInitialsDestination>();
-            builder.RegisterType<ToolsetFileDestination>().As<IToolsetDestination>();
+            builder.RegisterType<ToolsetFileReaderWriter>().As<IToolsetReader, IToolsetWriter>();
+            builder.RegisterType<InitialsFileReaderWriter>().As<IInitialsReader, IInitialsWriter>();
             builder.RegisterType<MainForm>();
             IContainer container = builder.Build();
-            
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm(container));
+
+            System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            System.Windows.Forms.Application.EnableVisualStyles();
+            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+            System.Windows.Forms.Application.Run(new MainForm(container));
         }
-        
+
         private static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
-     
-    
+                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<ClientServiceStartup>(); });
     }
 }
