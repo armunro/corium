@@ -9,27 +9,27 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
 		Release|Any CPU = Release|Any CPU
-		debug|x64 = debug|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{819DC660-FFD7-422E-AC31-81E591264182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{819DC660-FFD7-422E-AC31-81E591264182}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{819DC660-FFD7-422E-AC31-81E591264182}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{819DC660-FFD7-422E-AC31-81E591264182}.Release|Any CPU.Build.0 = Release|Any CPU
-		{819DC660-FFD7-422E-AC31-81E591264182}.debug|x64.ActiveCfg = Debug|x64
-		{819DC660-FFD7-422E-AC31-81E591264182}.debug|x64.Build.0 = Debug|x64
+		{819DC660-FFD7-422E-AC31-81E591264182}.Debug|x64.ActiveCfg = Debug|x64
+		{819DC660-FFD7-422E-AC31-81E591264182}.Debug|x64.Build.0 = Debug|x64
 		{C1B2001C-2A69-4240-8CA0-F816CAF2A91F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C1B2001C-2A69-4240-8CA0-F816CAF2A91F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1B2001C-2A69-4240-8CA0-F816CAF2A91F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1B2001C-2A69-4240-8CA0-F816CAF2A91F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C1B2001C-2A69-4240-8CA0-F816CAF2A91F}.debug|x64.ActiveCfg = Debug|Any CPU
-		{C1B2001C-2A69-4240-8CA0-F816CAF2A91F}.debug|x64.Build.0 = Debug|Any CPU
+		{C1B2001C-2A69-4240-8CA0-F816CAF2A91F}.Debug|x64.ActiveCfg = Debug|x64
+		{C1B2001C-2A69-4240-8CA0-F816CAF2A91F}.Debug|x64.Build.0 = Debug|x64
 		{5BDDB1AF-8D04-44ED-A552-52BDD15C4392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5BDDB1AF-8D04-44ED-A552-52BDD15C4392}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BDDB1AF-8D04-44ED-A552-52BDD15C4392}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BDDB1AF-8D04-44ED-A552-52BDD15C4392}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5BDDB1AF-8D04-44ED-A552-52BDD15C4392}.debug|x64.ActiveCfg = Debug|Any CPU
-		{5BDDB1AF-8D04-44ED-A552-52BDD15C4392}.debug|x64.Build.0 = Debug|Any CPU
+		{5BDDB1AF-8D04-44ED-A552-52BDD15C4392}.Debug|x64.ActiveCfg = Debug|x64
+		{5BDDB1AF-8D04-44ED-A552-52BDD15C4392}.Debug|x64.Build.0 = Debug|x64
 	EndGlobalSection
 EndGlobal
