@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Corium.Client.Windows.Forms
+namespace Corium.Client.Windows.Adapter.Viewers.Forms
 {
     partial class MainForm
     {

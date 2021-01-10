@@ -11,15 +11,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Update="Forms\CoriumWindowForm.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Update="Forms\MainForm.cs">
-        <SubType>Form</SubType>
-      </Compile>
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="Autofac" Version="6.1.0" />
       <PackageReference Include="CefSharp.WinForms" Version="86.0.241" />
       <PackageReference Include="FontAwesome.Sharp" Version="5.15.3" />
@@ -43,6 +34,10 @@
         <Reference Update="CefSharp.WinForms">
             <Private>true</Private>
         </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Adapter\Viewers" />
     </ItemGroup>
 
 </Project>

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using Autofac;
 using Corium.Adapter.Data.File;
 using Corium.Client.Service;
-using Corium.Client.Windows.Forms;
+using Corium.Client.Windows.Adapter.Viewers.Forms;
 using Corium.Domain.Data.Readers;
 using Corium.Domain.Data.Writers;
 using Microsoft.AspNetCore.Hosting;

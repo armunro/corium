@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corium", "Corium\Corium.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corium.Client.Service", "Corium.Client.Service\Corium.Client.Service.csproj", "{5BDDB1AF-8D04-44ED-A552-52BDD15C4392}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{8DC65C48-C61E-42BF-A344-22B8BEC59A2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{046C2017-B43F-4212-80E0-89D258F4899F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,5 +35,9 @@ Global
 		{5BDDB1AF-8D04-44ED-A552-52BDD15C4392}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5BDDB1AF-8D04-44ED-A552-52BDD15C4392}.Debug|x64.ActiveCfg = Debug|x64
 		{5BDDB1AF-8D04-44ED-A552-52BDD15C4392}.Debug|x64.Build.0 = Debug|x64
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5BDDB1AF-8D04-44ED-A552-52BDD15C4392} = {8DC65C48-C61E-42BF-A344-22B8BEC59A2B}
+		{819DC660-FFD7-422E-AC31-81E591264182} = {046C2017-B43F-4212-80E0-89D258F4899F}
 	EndGlobalSection
 EndGlobal

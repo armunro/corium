@@ -8,8 +8,9 @@ using Corium.Domain;
 using Corium.Domain.Data;
 using Corium.Domain.Data.Readers;
 using Corium.Domain.Data.Writers;
+using Corium.Domain.Viewers;
 
-namespace Corium.Client.Windows.Forms
+namespace Corium.Client.Windows.Adapter.Viewers.Forms
 {
     public partial class MainForm : Form
     {
@@ -83,8 +84,8 @@ namespace Corium.Client.Windows.Forms
             {
                 foreach (ToolWindow toolWindow in tool.Windows)
                 {
-                    CoriumWindowForm form = new CoriumWindowForm(toolWindow);
-                    form.Show();
+                    ToolWindowForm form = new ToolWindowForm();
+                    ((IToolWindowViewer) form).OpenViewer(toolWindow); 
                 }
             }
             

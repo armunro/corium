@@ -3,56 +3,23 @@ using System.Drawing;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
-using Corium.Client.Windows.Controls;
 using Corium.Domain;
+using Corium.Domain.Viewers;
 
-namespace Corium.Client.Windows.Forms
+namespace Corium.Client.Windows.Adapter.Viewers.Forms
 {
-    public sealed partial class CoriumWindowForm : Form
+    public sealed partial class ToolWindowForm : Form, IToolWindowViewer
     {
-        private readonly ChromiumWebBrowser _browser;
+        private ChromiumWebBrowser _browser;
         private bool _mouseDown;
         private Point _lastLocation;
 
-        public CoriumWindowForm(ToolWindow toolWindow)
+        public ToolWindowForm()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             DoubleBuffered = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
-
-
-            _browser = new ChromiumWebBrowser(toolWindow.StartUrl);
-            _browser.Dock = DockStyle.None;
-
-            _browser.IsBrowserInitializedChanged += OnIsBrowserInitializedChanged;
-            _browser.LoadingStateChanged += OnLoadingStateChanged;
-            _browser.ConsoleMessage += OnBrowserConsoleMessage;
-            _browser.TitleChanged += OnBrowserTitleChanged;
-            _browser.AddressChanged += OnBrowserAddressChanged;
-
-            PlaceBrowser(toolWindow);
-            Controls.Add(_browser);
-            BackColor = ColorTranslator.FromHtml(toolWindow.Appearance.WindowBorderColor);
-            lblTitle.BackColor = ColorTranslator.FromHtml(toolWindow.Appearance.TitleBarBackground);
-            MinimizeButton.BackColor = ColorTranslator.FromHtml(toolWindow.Appearance.TitleBarBackground);
-            MinimizeButton.IconColor = ColorTranslator.FromHtml(toolWindow.Appearance.TitleBarIconColor);
-            MaximizeButton.BackColor = ColorTranslator.FromHtml(toolWindow.Appearance.TitleBarBackground);
-            MaximizeButton.IconColor = ColorTranslator.FromHtml(toolWindow.Appearance.TitleBarIconColor);
-            ExitButton.BackColor = ColorTranslator.FromHtml(toolWindow.Appearance.TitleBarBackground);
-            ExitButton.IconColor = ColorTranslator.FromHtml(toolWindow.Appearance.TitleBarIconColor);
-            BackButton.BackColor = ColorTranslator.FromHtml(toolWindow.Appearance.TitleBarBackground);
-            BackButton.IconColor = ColorTranslator.FromHtml(toolWindow.Appearance.TitleBarIconColor);
-            ForwardButton.BackColor = ColorTranslator.FromHtml(toolWindow.Appearance.TitleBarBackground);
-            ForwardButton.IconColor = ColorTranslator.FromHtml(toolWindow.Appearance.TitleBarIconColor);
-
-
-            var version = string.Format("Chromium: {0}, CEF: {1}, CefSharp: {2}",
-                Cef.ChromiumVersion, Cef.CefVersion, Cef.CefSharpVersion);
-
-            var bitness = Environment.Is64BitProcess ? "x64" : "x86";
-            var environment = String.Format("Environment: {0}", bitness);
-            DisplayOutput(string.Format("{0}, {1}", version, environment));
         }
 
         protected override void WndProc(ref Message m)
@@ -96,10 +63,7 @@ namespace Corium.Client.Windows.Forms
             this.InvokeOnUiThreadIfRequired(() => b.Focus());
         }
 
-        private void OnBrowserConsoleMessage(object sender, ConsoleMessageEventArgs args)
-        {
-            DisplayOutput(string.Format("Line: {0}, Source: {1}, Message: {2}", args.Line, args.Source, args.Message));
-        }
+      
 
 
         private void OnLoadingStateChanged(object sender, LoadingStateChangedEventArgs args)
@@ -135,10 +99,6 @@ namespace Corium.Client.Windows.Forms
         private void LogButton_Click(object sender, EventArgs e) => LogPanel.Visible = !LogPanel.Visible;
 
 
-        public void DisplayOutput(string output) =>
-            this.InvokeOnUiThreadIfRequired(() => txtOutput.Text += output + Environment.NewLine);
-
-
         private void ShowDevToolsMenuItemClick(object sender, EventArgs e) => _browser.ShowDevTools();
 
 
@@ -164,7 +124,7 @@ namespace Corium.Client.Windows.Forms
         private void ExitButton_Click(object sender, EventArgs e)
         {
             _browser.Dispose();
-           
+
             Close();
         }
 
@@ -188,6 +148,32 @@ namespace Corium.Client.Windows.Forms
             WindowState = FormWindowState.Minimized;
         }
 
-        
+
+        public void OpenViewer(ToolWindow window)
+        {
+            this.Show();
+            _browser = new ChromiumWebBrowser(window.StartUrl);
+            _browser.Dock = DockStyle.None;
+
+            _browser.IsBrowserInitializedChanged += OnIsBrowserInitializedChanged;
+            _browser.LoadingStateChanged += OnLoadingStateChanged;
+            _browser.TitleChanged += OnBrowserTitleChanged;
+            _browser.AddressChanged += OnBrowserAddressChanged;
+
+            PlaceBrowser(window);
+            Controls.Add(_browser);
+            BackColor = ColorTranslator.FromHtml(window.Appearance.WindowBorderColor);
+            lblTitle.BackColor = ColorTranslator.FromHtml(window.Appearance.TitleBarBackground);
+            MinimizeButton.BackColor = ColorTranslator.FromHtml(window.Appearance.TitleBarBackground);
+            MinimizeButton.IconColor = ColorTranslator.FromHtml(window.Appearance.TitleBarIconColor);
+            MaximizeButton.BackColor = ColorTranslator.FromHtml(window.Appearance.TitleBarBackground);
+            MaximizeButton.IconColor = ColorTranslator.FromHtml(window.Appearance.TitleBarIconColor);
+            ExitButton.BackColor = ColorTranslator.FromHtml(window.Appearance.TitleBarBackground);
+            ExitButton.IconColor = ColorTranslator.FromHtml(window.Appearance.TitleBarIconColor);
+            BackButton.BackColor = ColorTranslator.FromHtml(window.Appearance.TitleBarBackground);
+            BackButton.IconColor = ColorTranslator.FromHtml(window.Appearance.TitleBarIconColor);
+            ForwardButton.BackColor = ColorTranslator.FromHtml(window.Appearance.TitleBarBackground);
+            ForwardButton.IconColor = ColorTranslator.FromHtml(window.Appearance.TitleBarIconColor);
+        }
     }
 }
