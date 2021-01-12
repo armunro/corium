@@ -5,7 +5,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Corium.Client.Windows
+namespace Corium.Client.Windows.Adapter.View
 {
     public static class ControlExtensions
     {
@@ -20,18 +20,12 @@ namespace Corium.Client.Windows
             //have a quick read over https://stackoverflow.com/questions/1874728/avoid-calling-invoke-when-the-control-is-disposed
             //No action
             if (control.Disposing || control.IsDisposed || !control.IsHandleCreated)
-            {
                 return;
-            }
 
             if (control.InvokeRequired)
-            {
                 control.BeginInvoke(action);
-            }
             else
-            {
                 action.Invoke();
-            }
         }
     }
 }

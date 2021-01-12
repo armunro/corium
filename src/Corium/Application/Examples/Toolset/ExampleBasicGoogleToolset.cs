@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Corium.Domain;
+using Corium.Domain.View;
 
 namespace Corium.Application.Examples.Toolset
 {
@@ -13,13 +14,13 @@ namespace Corium.Application.Examples.Toolset
                 new Tool()
                 {
                     Name = "Google Calendar",
-                    Windows = new List<ToolWindow>()
+                    Windows = new List<ToolView>()
                     {
-                        new ToolWindow()
+                        new ToolView()
                         {
                             Name = "Month",
                             StartUrl = "https://calendar.google.com/calendar/u/0/r",
-                            Appearance = new ToolWindowAppearance()
+                            Appearance = new ClientAppearance()
                             {
                                 Title = "GCAL | Month",
                                 TitleBarBackground = "Black", 
@@ -27,11 +28,11 @@ namespace Corium.Application.Examples.Toolset
                                 WindowBorderColor = "Black"
                             }
                         },
-                        new ToolWindow()
+                        new ToolView()
                         {
                             Name = "Agenda",
                             StartUrl = "https://calendar.google.com/calendar/u/0/r/day",
-                            Appearance = new ToolWindowAppearance()
+                            Appearance = new ClientAppearance()
                             {
                                 Title = "GCAL | Agenda",
                                 TitleBarBackground = "Green", 

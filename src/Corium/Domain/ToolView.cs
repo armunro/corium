@@ -1,11 +1,13 @@
+using Corium.Domain.View;
+
 namespace Corium.Domain
 {
-    public class ToolWindow
+    public class ToolView
     {
       
         public string Name { get; set; }
         public string StartUrl { get; set; }
-        public ToolWindowAppearance Appearance { get; set; } = new ToolWindowAppearance();
+        public ClientAppearance Appearance { get; set; } = new ClientAppearance();
         
     }
 }

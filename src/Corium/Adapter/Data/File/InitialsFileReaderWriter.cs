@@ -11,16 +11,10 @@ namespace Corium.Adapter.Data.File
     {
         private string _filePath;
 
-        public InitialsFileReaderWriter(string filePath)
-        {
-            _filePath = filePath;
-        }
+        public InitialsFileReaderWriter(string filePath) => _filePath = filePath;
 
-        public void SetInitials(Initials initials)
-        {
-            System.IO.File.WriteAllText(_filePath,JsonConvert.SerializeObject(initials, Formatting.Indented));
-        }
-        
+        public void SetInitials(Initials initials) => System.IO.File.WriteAllText(_filePath,JsonConvert.SerializeObject(initials, Formatting.Indented));
+
         public Initials GetInitials()
         {
             try

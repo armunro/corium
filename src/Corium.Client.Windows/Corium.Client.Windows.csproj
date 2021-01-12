@@ -17,6 +17,7 @@
       <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
       <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
       <PackageReference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions" Version="2.2.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -34,10 +35,6 @@
         <Reference Update="CefSharp.WinForms">
             <Private>true</Private>
         </Reference>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Adapter\Viewers" />
     </ItemGroup>
 
 </Project>

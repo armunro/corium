@@ -1,6 +1,6 @@
-﻿namespace Corium.Client.Windows.Adapter.Viewers.Forms
+﻿namespace Corium.Client.Windows.Adapter.View
 {
-    sealed partial class ToolWindowForm
+    sealed partial class ClientViewForm
     {
         /// <summary>
         /// Required designer variable.

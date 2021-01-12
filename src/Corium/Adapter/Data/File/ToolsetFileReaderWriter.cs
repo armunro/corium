@@ -16,7 +16,7 @@ namespace Corium.Adapter.Data.File
             _filePath = filePath;
         }
 
-        public ToolSet LoadToolset()
+        public ToolSet ReadToolset()
         {
             try
             {
@@ -28,7 +28,7 @@ namespace Corium.Adapter.Data.File
             }
         }
         
-        public void SetToolSet(ToolSet toolset)
+        public void WriteToolset(ToolSet toolset)
         {
             System.IO.File.WriteAllText(_filePath,JsonConvert.SerializeObject(toolset, Formatting.Indented));
         }

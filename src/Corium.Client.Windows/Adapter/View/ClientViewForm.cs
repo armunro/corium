@@ -3,18 +3,17 @@ using System.Drawing;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
-using Corium.Domain;
-using Corium.Domain.Viewers;
+using Corium.Domain.View;
 
-namespace Corium.Client.Windows.Adapter.Viewers.Forms
+namespace Corium.Client.Windows.Adapter.View
 {
-    public sealed partial class ToolWindowForm : Form, IToolWindowViewer
+    public sealed partial class ClientViewForm : Form, IClientViewer
     {
         private ChromiumWebBrowser _browser;
         private bool _mouseDown;
         private Point _lastLocation;
 
-        public ToolWindowForm()
+        public ClientViewForm()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
@@ -46,15 +45,6 @@ namespace Corium.Client.Windows.Adapter.Viewers.Forms
                 base.WndProc(ref m);
         }
 
-        void PlaceBrowser(ToolWindow coriumWindow)
-        {
-            _browser.Top = 24;
-            _browser.Left = 2;
-            _browser.Width = ClientSize.Width - 4;
-            _browser.Height = ClientSize.Height - 26;
-            _browser.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
-        }
-
 
         private void OnIsBrowserInitializedChanged(object sender, EventArgs e)
         {
@@ -62,8 +52,6 @@ namespace Corium.Client.Windows.Adapter.Viewers.Forms
 
             this.InvokeOnUiThreadIfRequired(() => b.Focus());
         }
-
-      
 
 
         private void OnLoadingStateChanged(object sender, LoadingStateChangedEventArgs args)
@@ -92,15 +80,6 @@ namespace Corium.Client.Windows.Adapter.Viewers.Forms
 
         private void BackButton_Click(object sender, EventArgs e) => _browser.Back();
 
-        private void ForwardButton_Click(object sender, EventArgs e) => _browser.Forward();
-
-        private void DevToolsButton_Click(object sender, EventArgs e) => _browser.ShowDevTools();
-
-        private void LogButton_Click(object sender, EventArgs e) => LogPanel.Visible = !LogPanel.Visible;
-
-
-        private void ShowDevToolsMenuItemClick(object sender, EventArgs e) => _browser.ShowDevTools();
-
 
         private void label1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -123,8 +102,7 @@ namespace Corium.Client.Windows.Adapter.Viewers.Forms
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            _browser.Dispose();
-
+            _browser?.Dispose();
             Close();
         }
 
@@ -138,21 +116,14 @@ namespace Corium.Client.Windows.Adapter.Viewers.Forms
         }
 
 
-        private void MaximizeButton_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Maximized;
-        }
+        private void MaximizeButton_Click(object sender, EventArgs e) => WindowState = FormWindowState.Maximized;
 
-        private void MinimizeButton_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
+        private void MinimizeButton_Click(object sender, EventArgs e) => WindowState = FormWindowState.Minimized;
 
 
-        public void OpenViewer(ToolWindow window)
+        public void OpenViewer(ClientViewContext context)
         {
-            this.Show();
-            _browser = new ChromiumWebBrowser(window.StartUrl);
+            _browser = new ChromiumWebBrowser(context.StartUrl);
             _browser.Dock = DockStyle.None;
 
             _browser.IsBrowserInitializedChanged += OnIsBrowserInitializedChanged;
@@ -160,20 +131,26 @@ namespace Corium.Client.Windows.Adapter.Viewers.Forms
             _browser.TitleChanged += OnBrowserTitleChanged;
             _browser.AddressChanged += OnBrowserAddressChanged;
 
-            PlaceBrowser(window);
+            _browser.Top = 24;
+            _browser.Left = 2;
+            _browser.Width = ClientSize.Width - 4;
+            _browser.Height = ClientSize.Height - 26;
+            _browser.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
+
             Controls.Add(_browser);
-            BackColor = ColorTranslator.FromHtml(window.Appearance.WindowBorderColor);
-            lblTitle.BackColor = ColorTranslator.FromHtml(window.Appearance.TitleBarBackground);
-            MinimizeButton.BackColor = ColorTranslator.FromHtml(window.Appearance.TitleBarBackground);
-            MinimizeButton.IconColor = ColorTranslator.FromHtml(window.Appearance.TitleBarIconColor);
-            MaximizeButton.BackColor = ColorTranslator.FromHtml(window.Appearance.TitleBarBackground);
-            MaximizeButton.IconColor = ColorTranslator.FromHtml(window.Appearance.TitleBarIconColor);
-            ExitButton.BackColor = ColorTranslator.FromHtml(window.Appearance.TitleBarBackground);
-            ExitButton.IconColor = ColorTranslator.FromHtml(window.Appearance.TitleBarIconColor);
-            BackButton.BackColor = ColorTranslator.FromHtml(window.Appearance.TitleBarBackground);
-            BackButton.IconColor = ColorTranslator.FromHtml(window.Appearance.TitleBarIconColor);
-            ForwardButton.BackColor = ColorTranslator.FromHtml(window.Appearance.TitleBarBackground);
-            ForwardButton.IconColor = ColorTranslator.FromHtml(window.Appearance.TitleBarIconColor);
+            BackColor = ColorTranslator.FromHtml(context.ClientAppearance.WindowBorderColor);
+            lblTitle.BackColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarBackground);
+            MinimizeButton.BackColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarBackground);
+            MinimizeButton.IconColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarIconColor);
+            MaximizeButton.BackColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarBackground);
+            MaximizeButton.IconColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarIconColor);
+            ExitButton.BackColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarBackground);
+            ExitButton.IconColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarIconColor);
+            BackButton.BackColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarBackground);
+            BackButton.IconColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarIconColor);
+            ForwardButton.BackColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarBackground);
+            ForwardButton.IconColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarIconColor);
+            this.Show();
         }
     }
 }
