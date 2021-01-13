@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-namespace Corium.Domain
+namespace Corium.Domain.Sources
 {
-    public class Initials
+    public class Sources
     {
         public List<string> ToolSetSources { get; set; } = new List<string>();
     }

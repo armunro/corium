@@ -12,12 +12,17 @@
 
     <ItemGroup>
       <PackageReference Include="Autofac" Version="6.1.0" />
+      <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
       <PackageReference Include="CefSharp.WinForms" Version="86.0.241" />
       <PackageReference Include="FontAwesome.Sharp" Version="5.15.3" />
       <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
       <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
       <PackageReference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions" Version="2.2.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="5.0.0" />
       <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -35,6 +40,28 @@
         <Reference Update="CefSharp.WinForms">
             <Private>true</Private>
         </Reference>
+        <Reference Include="Corium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>bin\x64\Debug\netcoreapp3.1\Corium.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="appsettings.Development.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Include="appsettings.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Adapter\View\MainForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>

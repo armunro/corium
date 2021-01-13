@@ -1,8 +1,8 @@
+using System.Collections.Generic;
 using System.IO;
 using Corium.Domain;
-using Corium.Domain.Data;
-using Corium.Domain.Data.Readers;
-using Corium.Domain.Data.Writers;
+using Corium.Domain.Exceptions.Toolset;
+using Corium.Domain.Toolset;
 using Newtonsoft.Json;
 
 namespace Corium.Adapter.Data.File
@@ -24,7 +24,7 @@ namespace Corium.Adapter.Data.File
             }
             catch (FileNotFoundException sourceNotFoundEx)
             {
-                throw new SourceNotFoundException(sourceNotFoundEx);
+                throw new ToolsetNotFoundException(sourceNotFoundEx);
             }
         }
         

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Corium.Domain;
+﻿using System.Collections.Generic;
+using Corium.Domain.Toolset;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+
 
 namespace Corium.Client.Service.Controllers
 {
@@ -12,19 +9,18 @@ namespace Corium.Client.Service.Controllers
     [Route("[controller]")]
     public class ToolsetController : ControllerBase
     {
+        private readonly IToolsetReader _toolsetReader;
 
 
-        private readonly ILogger<ToolsetController> _logger;
-
-        public ToolsetController(ILogger<ToolsetController> logger)
+        public ToolsetController(IToolsetReader toolsetReader)
         {
-            _logger = logger;
+            _toolsetReader = toolsetReader;
         }
 
         [HttpGet]
         public IEnumerable<ToolSet> Get()
         {
-            return new List<ToolSet>() {Application.Examples.Toolset.ExampleBasicGoogleToolset.ProvideToolset};
+            return new List<ToolSet>() {_toolsetReader.ReadToolset()};
         }
     }
 }

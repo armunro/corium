@@ -1,5 +1,8 @@
 using System;
+using Corium.Domain.Client;
+using Corium.Domain.Client.Window;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Corium.Client.Service.Controllers
 {
@@ -7,18 +10,18 @@ namespace Corium.Client.Service.Controllers
     [Route("[controller]")]
     public class LaunchController : Controller
     {
-        public LaunchController(IEventResponder responder)
+        public LaunchController(IClientWindowLaunchHandler handler)
         {
-            _responder = responder;
+            _handler = handler;
         }
 
-        private IEventResponder _responder { get; set; }
+        private IClientWindowLaunchHandler _handler { get; set; }
         
         [HttpGet]
         public Guid Index()
         {
             Guid launchRequestId = Guid.NewGuid();
-            _responder.Respond();
+            _handler.Handle(Guid.NewGuid());
             return launchRequestId;
 
         }

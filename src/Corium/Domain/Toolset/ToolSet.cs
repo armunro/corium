@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Corium.Domain
+namespace Corium.Domain.Toolset
 {
     public class ToolSet
     {

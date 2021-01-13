@@ -1,4 +1,4 @@
-namespace Corium.Domain.Data.Readers
+namespace Corium.Domain.Toolset
 {
     public interface IToolsetReader
     {

@@ -1,4 +1,4 @@
-namespace Corium.Domain.Data.Writers
+namespace Corium.Domain.Toolset
 {
     public interface IToolsetWriter
     {

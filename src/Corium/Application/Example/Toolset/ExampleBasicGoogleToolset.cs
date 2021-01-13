@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using Corium.Domain;
-using Corium.Domain.View;
+using Corium.Domain.Client.Window;
+using Corium.Domain.Toolset;
 
-namespace Corium.Application.Examples.Toolset
+namespace Corium.Application.Example.Toolset
 {
     public class ExampleBasicGoogleToolset
     {
@@ -20,7 +21,7 @@ namespace Corium.Application.Examples.Toolset
                         {
                             Name = "Month",
                             StartUrl = "https://calendar.google.com/calendar/u/0/r",
-                            Appearance = new ClientAppearance()
+                            WindowAppearanceState = new ClientWindowAppearanceState()
                             {
                                 Title = "GCAL | Month",
                                 TitleBarBackground = "Black", 
@@ -32,7 +33,7 @@ namespace Corium.Application.Examples.Toolset
                         {
                             Name = "Agenda",
                             StartUrl = "https://calendar.google.com/calendar/u/0/r/day",
-                            Appearance = new ClientAppearance()
+                            WindowAppearanceState = new ClientWindowAppearanceState()
                             {
                                 Title = "GCAL | Agenda",
                                 TitleBarBackground = "Green", 

@@ -3,22 +3,52 @@ using System.Drawing;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
-using Corium.Domain.View;
+using Corium.Domain.Client.Window;
 
-namespace Corium.Client.Windows.Adapter.View
+namespace Corium.Client.Windows.Adapter.Client.Window
 {
-    public sealed partial class ClientViewForm : Form, IClientViewer
+    public sealed partial class ClientWindowForm : Form
     {
+        private readonly ClientWindowState _clientWindowState;
         private ChromiumWebBrowser _browser;
         private bool _mouseDown;
         private Point _lastLocation;
 
-        public ClientViewForm()
+        public ClientWindowForm(ClientWindowState clientWindowState)
         {
+            _clientWindowState = clientWindowState;
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             DoubleBuffered = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
+            _browser = new ChromiumWebBrowser(_clientWindowState.StartUrl);
+            _browser.Dock = DockStyle.None;
+
+            _browser.IsBrowserInitializedChanged += OnIsBrowserInitializedChanged;
+            _browser.LoadingStateChanged += OnLoadingStateChanged;
+            _browser.TitleChanged += OnBrowserTitleChanged;
+            _browser.AddressChanged += OnBrowserAddressChanged;
+
+            _browser.Top = 24;
+            _browser.Left = 2;
+            _browser.Width = ClientSize.Width - 4;
+            _browser.Height = ClientSize.Height - 26;
+            _browser.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
+
+            Controls.Add(_browser);
+            BackColor = ColorTranslator.FromHtml(_clientWindowState.ClientWindowAppearanceState.WindowBorderColor);
+            lblTitle.BackColor = ColorTranslator.FromHtml(_clientWindowState.ClientWindowAppearanceState.TitleBarBackground);
+            MinimizeButton.BackColor = ColorTranslator.FromHtml(_clientWindowState.ClientWindowAppearanceState.TitleBarBackground);
+            MinimizeButton.IconColor = ColorTranslator.FromHtml(_clientWindowState.ClientWindowAppearanceState.TitleBarIconColor);
+            MaximizeButton.BackColor = ColorTranslator.FromHtml(_clientWindowState.ClientWindowAppearanceState.TitleBarBackground);
+            MaximizeButton.IconColor = ColorTranslator.FromHtml(_clientWindowState.ClientWindowAppearanceState.TitleBarIconColor);
+            ExitButton.BackColor = ColorTranslator.FromHtml(_clientWindowState.ClientWindowAppearanceState.TitleBarBackground);
+            ExitButton.IconColor = ColorTranslator.FromHtml(_clientWindowState.ClientWindowAppearanceState.TitleBarIconColor);
+            BackButton.BackColor = ColorTranslator.FromHtml(_clientWindowState.ClientWindowAppearanceState.TitleBarBackground);
+            BackButton.IconColor = ColorTranslator.FromHtml(_clientWindowState.ClientWindowAppearanceState.TitleBarIconColor);
+            ForwardButton.BackColor = ColorTranslator.FromHtml(_clientWindowState.ClientWindowAppearanceState.TitleBarBackground);
+            ForwardButton.IconColor = ColorTranslator.FromHtml(_clientWindowState.ClientWindowAppearanceState.TitleBarIconColor);
+
         }
 
         protected override void WndProc(ref Message m)
@@ -121,36 +151,6 @@ namespace Corium.Client.Windows.Adapter.View
         private void MinimizeButton_Click(object sender, EventArgs e) => WindowState = FormWindowState.Minimized;
 
 
-        public void OpenViewer(ClientViewContext context)
-        {
-            _browser = new ChromiumWebBrowser(context.StartUrl);
-            _browser.Dock = DockStyle.None;
-
-            _browser.IsBrowserInitializedChanged += OnIsBrowserInitializedChanged;
-            _browser.LoadingStateChanged += OnLoadingStateChanged;
-            _browser.TitleChanged += OnBrowserTitleChanged;
-            _browser.AddressChanged += OnBrowserAddressChanged;
-
-            _browser.Top = 24;
-            _browser.Left = 2;
-            _browser.Width = ClientSize.Width - 4;
-            _browser.Height = ClientSize.Height - 26;
-            _browser.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
-
-            Controls.Add(_browser);
-            BackColor = ColorTranslator.FromHtml(context.ClientAppearance.WindowBorderColor);
-            lblTitle.BackColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarBackground);
-            MinimizeButton.BackColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarBackground);
-            MinimizeButton.IconColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarIconColor);
-            MaximizeButton.BackColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarBackground);
-            MaximizeButton.IconColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarIconColor);
-            ExitButton.BackColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarBackground);
-            ExitButton.IconColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarIconColor);
-            BackButton.BackColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarBackground);
-            BackButton.IconColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarIconColor);
-            ForwardButton.BackColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarBackground);
-            ForwardButton.IconColor = ColorTranslator.FromHtml(context.ClientAppearance.TitleBarIconColor);
-            this.Show();
-        }
+    
     }
 }

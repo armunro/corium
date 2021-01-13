@@ -1,6 +1,6 @@
-namespace Corium.Domain.View
+namespace Corium.Domain.Client.Window
 {
-    public class ClientAppearance
+    public class ClientWindowAppearanceState
     {
         public string Title { get; set; } = "Corium | Empty View";
         public string TitleBarBackground { get; set; } = "#3B434F";
