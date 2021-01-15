@@ -7,12 +7,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-
 namespace Corium.Client.Windows
 {
     public class Startup
     {
         private readonly IWebHostEnvironment _environment;
+        private IConfigurationRoot Configuration { get; set; }
+
         public Startup(IWebHostEnvironment env)
         {
             _environment = env;
@@ -21,18 +22,13 @@ namespace Corium.Client.Windows
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
-            this.Configuration = builder.Build();
+            Configuration = builder.Build();
         }
 
-        public IConfigurationRoot Configuration { get; private set; }
 
-        public ILifetimeScope AutofacContainer { get; private set; }
-
-        // ConfigureServices is where you register dependencies. This gets
-        // called by the runtime before the ConfigureContainer method, below.
         public void ConfigureServices(IServiceCollection services)
         {
-            var assembly = typeof(Corium.Client.Service.Program).Assembly;
+            var assembly = typeof(Corium.Client.Service.Controllers.LaunchController).Assembly;
             services.AddRazorPages()
                 .AddJsonOptions(options => options.JsonSerializerOptions.WriteIndented = _environment.IsDevelopment());
             services.AddControllers().PartManager.ApplicationParts.Add(new AssemblyPart(assembly));
@@ -47,11 +43,7 @@ namespace Corium.Client.Windows
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
+            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();

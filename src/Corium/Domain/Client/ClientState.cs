@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Corium.Domain.Client.Window;
+using Corium.Domain.Window.State;
 
 namespace Corium.Domain.Client
 {
     public class ClientState
     {
-        public Dictionary<Guid, ClientWindowState> Windows { get; set; } = new Dictionary<Guid, ClientWindowState>();
+        public Dictionary<Guid, WindowState> Windows { get; set; } = new Dictionary<Guid, WindowState>();
     }
 }

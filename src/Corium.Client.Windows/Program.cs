@@ -1,23 +1,16 @@
 using System;
 using System.Windows.Forms;
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
 using Corium.Client.Windows.Adapter.Client;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace Corium.Client.Windows
 {
     public static class Program
     {
-       public static MainForm Form { get; set; }
+       public static MainForm Form { get; private set; }
         [STAThread]
-        static void Main(string[] args)
+        static void Main()
         {
            
-           
-            
             System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);

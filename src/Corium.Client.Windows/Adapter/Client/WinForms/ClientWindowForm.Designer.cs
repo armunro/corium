@@ -1,4 +1,4 @@
-﻿namespace Corium.Client.Windows.Adapter.Client.Window
+﻿namespace Corium.Client.Windows.Adapter.Client.WinForms
 {
     sealed partial class ClientWindowForm
     {
@@ -232,13 +232,13 @@
         
         
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblTitle;
+        public System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel LogPanel;
         private System.Windows.Forms.TextBox txtOutput;
-        private FontAwesome.Sharp.IconButton ExitButton;
-        private FontAwesome.Sharp.IconButton MaximizeButton;
-        private FontAwesome.Sharp.IconButton MinimizeButton;
-        private FontAwesome.Sharp.IconButton BackButton;
-        private FontAwesome.Sharp.IconButton ForwardButton;
+        public FontAwesome.Sharp.IconButton ExitButton;
+        public FontAwesome.Sharp.IconButton MaximizeButton;
+        public FontAwesome.Sharp.IconButton MinimizeButton;
+        public FontAwesome.Sharp.IconButton BackButton;
+        public FontAwesome.Sharp.IconButton ForwardButton;
     }
 }

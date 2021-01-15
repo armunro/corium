@@ -1,12 +1,9 @@
-using System.Windows.Threading;
 using Autofac;
 using Corium.Adapter.Data.File;
-using Corium.Client.Windows.Adapter.Client;
-using Corium.Client.Windows.Adapter.Client.Window;
-using Corium.Domain.Client;
-using Corium.Domain.Client.Window;
+using Corium.Client.Windows.Adapter.Client.WinForms;
 using Corium.Domain.Sources;
 using Corium.Domain.Toolset;
+using Corium.Domain.Window;
 
 
 namespace Corium.Client.Windows.Dependancies
@@ -15,11 +12,12 @@ namespace Corium.Client.Windows.Dependancies
     {
         protected override void Load(ContainerBuilder builder)
         {
+
             builder.RegisterType<ToolsetFileReaderWriter>().As<IToolsetReader, IToolsetWriter>().WithParameter("filePath", "default.toolset.json");
             builder.RegisterType<SourceFileReaderWriter>().As<ISourceReader, ISourceWriter>().WithParameter("filePath", "default.initials.json");
             builder.RegisterType<ClientWindowForm>();
-            builder.RegisterType<ClientWindowLaunchHandler>().SingleInstance().As<IClientWindowLaunchHandler>();
-            builder.RegisterType<WindowsFormClientStateFinder>().SingleInstance().As<IClientStateFinder>();
+            builder.RegisterType<WindowLauncher>().SingleInstance().As<IWindowLauncher>();
+
 
         }
     }

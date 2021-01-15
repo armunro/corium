@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Corium.Domain;
-using Corium.Domain.Client.Window;
 using Corium.Domain.Toolset;
+using Corium.Domain.Window.State;
 
 namespace Corium.Application.Example.Toolset
 {
@@ -15,28 +15,26 @@ namespace Corium.Application.Example.Toolset
                 new Tool()
                 {
                     Name = "Google Calendar",
-                    Windows = new List<ToolView>()
+                    Windows = new List<WindowState>()
                     {
-                        new ToolView()
+                        new WindowState()
                         {
-                            Name = "Month",
                             StartUrl = "https://calendar.google.com/calendar/u/0/r",
-                            WindowAppearanceState = new ClientWindowAppearanceState()
+                            Appearance = new WindowAppearanceState()
                             {
                                 Title = "GCAL | Month",
-                                TitleBarBackground = "Black", 
+                                TitleBarBackground = "Black",
                                 TitleBarIconColor = "White",
                                 WindowBorderColor = "Black"
                             }
                         },
-                        new ToolView()
+                        new WindowState()
                         {
-                            Name = "Agenda",
                             StartUrl = "https://calendar.google.com/calendar/u/0/r/day",
-                            WindowAppearanceState = new ClientWindowAppearanceState()
+                            Appearance = new WindowAppearanceState()
                             {
                                 Title = "GCAL | Agenda",
-                                TitleBarBackground = "Green", 
+                                TitleBarBackground = "Green",
                                 TitleBarIconColor = "White",
                                 WindowBorderColor = "Green"
                             }

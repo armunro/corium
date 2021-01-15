@@ -26,11 +26,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Corium.Client.Service\Corium.Client.Service.csproj" />
-      <ProjectReference Include="..\Corium\Corium.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
         <Reference Update="CefSharp">
             <Private>true</Private>
         </Reference>
@@ -39,9 +34,6 @@
         </Reference>
         <Reference Update="CefSharp.WinForms">
             <Private>true</Private>
-        </Reference>
-        <Reference Include="Corium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>bin\x64\Debug\netcoreapp3.1\Corium.dll</HintPath>
         </Reference>
     </ItemGroup>
 
@@ -62,6 +54,10 @@
       <Compile Update="Adapter\View\MainForm.cs">
         <SubType>Form</SubType>
       </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Corium.Client.Service\Corium.Client.Service.csproj" />
     </ItemGroup>
 
 </Project>

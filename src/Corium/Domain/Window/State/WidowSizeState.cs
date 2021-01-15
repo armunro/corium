@@ -1,6 +1,6 @@
-namespace Corium.Domain.Client.Window
+namespace Corium.Domain.Window.State
 {
-    public class ClientWidowSizeState
+    public class WidowSizeState
     {
         public int Width { get; set; }
         public int Height { get; set; }

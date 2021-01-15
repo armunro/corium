@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Corium.Domain.Client
+namespace Corium.Domain.Toolset
 {
     public interface IToolsetFinder
     {
