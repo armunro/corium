@@ -3,17 +3,18 @@ using System.Drawing;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
+using Corium.Domain.Window;
 using Corium.Domain.Window.State;
 
 namespace Corium.Client.Windows.Adapter.Client.WinForms
 {
-    public sealed partial class ClientWindowForm : Form
+    public sealed partial class WinFormsWindowHost : Form, IWindowHost
     {
-        private  ChromiumWebBrowser _browser;
+        private ChromiumWebBrowser _browser;
         private bool _mouseDown;
         private Point _lastLocation;
 
-        public ClientWindowForm()
+        public WinFormsWindowHost()
         {
             _browser = new ChromiumWebBrowser("about:blank");
             _browser.Dock = DockStyle.None;
@@ -28,16 +29,15 @@ namespace Corium.Client.Windows.Adapter.Client.WinForms
             _browser.Width = ClientSize.Width - 4;
             _browser.Height = ClientSize.Height - 26;
             _browser.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
-           
-            
+
+
             InitializeComponent();
-            
-            
+
+
             FormBorderStyle = FormBorderStyle.None;
             DoubleBuffered = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
             Controls.Add(_browser);
-
         }
 
         protected override void WndProc(ref Message m)
@@ -140,6 +140,24 @@ namespace Corium.Client.Windows.Adapter.Client.WinForms
         private void MinimizeButton_Click(object sender, EventArgs e) => WindowState = FormWindowState.Minimized;
 
 
+        public void SetWindowState(WindowState desiredState)
+        {
+            throw new NotImplementedException();
+        }
 
+        public WindowState GetWindowState()
+        {
+            return new WindowState()
+            {
+                Position = new WindowPositionState()
+                {
+                    X = Left, Y = Top
+                },
+                Size = new WidowSizeState()
+                {
+                    Height = this.Height, Width = this.Width
+                }
+            };
+        }
     }
 }

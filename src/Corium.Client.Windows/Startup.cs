@@ -1,5 +1,5 @@
 using Autofac;
-using Corium.Client.Windows.Dependancies;
+using Corium.Client.Windows.Autofac.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;

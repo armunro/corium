@@ -5,8 +5,7 @@ using Corium.Domain.Sources;
 using Corium.Domain.Toolset;
 using Corium.Domain.Window;
 
-
-namespace Corium.Client.Windows.Dependancies
+namespace Corium.Client.Windows.Autofac.Modules
 {
     public class WindowsClientModule : Module
     {
@@ -15,7 +14,7 @@ namespace Corium.Client.Windows.Dependancies
 
             builder.RegisterType<ToolsetFileReaderWriter>().As<IToolsetReader, IToolsetWriter>().WithParameter("filePath", "default.toolset.json");
             builder.RegisterType<SourceFileReaderWriter>().As<ISourceReader, ISourceWriter>().WithParameter("filePath", "default.initials.json");
-            builder.RegisterType<ClientWindowForm>();
+            builder.RegisterType<WinFormsWindowHost>();
             builder.RegisterType<WindowLauncher>().SingleInstance().As<IWindowLauncher>();
 
 

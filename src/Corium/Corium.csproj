@@ -13,7 +13,6 @@
     <ItemGroup>
       <Folder Include="Application\UseCase\Initials" />
       <Folder Include="Application\UseCase\Toolset" />
-      <Folder Include="Domain\Exceptions\Initials" />
     </ItemGroup>
 
     <ItemGroup>

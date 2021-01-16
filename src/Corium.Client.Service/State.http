@@ -1,7 +1,7 @@
-GET https://localhost:5001:/clientstate/
+GET https://localhost:5001:/window/
 ###
 GET https://localhost:5001/launch
 ###
-GET https://localhost:5001:/clientstate/window/ca04e86c-b94c-4292-8124-759cc2660c5c
+GET https://localhost:5001:/window/ca04e86c-b94c-4292-8124-759cc2660c5c
 ###
 GET https://localhost:5001/launch

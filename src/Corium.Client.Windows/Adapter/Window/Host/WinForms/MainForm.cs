@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Corium.Client.Windows.Adapter.Client.WinForms;
-using Corium.Client.Windows.Dependancies;
+using Corium.Client.Windows.Autofac.Modules;
 using Corium.Domain.Window;
 using Corium.Domain.Window.State;
 using FontAwesome.Sharp;
@@ -63,7 +63,7 @@ namespace Corium.Client.Windows.Adapter.Client
         {
         }
         
-        public  void SetHostFromWindowState(ClientWindowForm host, WindowState state)
+        public  void SetHostFromWindowState(WinFormsWindowHost host, WindowState state)
         {
             host.BackColor = ColorTranslator.FromHtml(state.Appearance.WindowBorderColor);
             host.lblTitle.BackColor = ColorTranslator.FromHtml(state.Appearance.TitleBarBackground);

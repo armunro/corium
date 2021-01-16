@@ -60,4 +60,8 @@
       <ProjectReference Include="..\Corium.Client.Service\Corium.Client.Service.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Adapter\Window\Host" />
+    </ItemGroup>
+
 </Project>
